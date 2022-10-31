@@ -1,38 +1,197 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+:root{
+  --color-baseWhite:#FFFFFF;
+  --color-baseBlack:#000000;
+  --color-grey900:#101828;
+  --color-grey800:#1D2939;
+  --color-grey700:#344054;
+  --color-grey600:#475467;
+  --color-grey500:#667085;
+  --color-grey400:#98A2B3;
+  --color-grey300:#D0D5DD;
+  --color-grey200:#EAECF0;
+  --color-grey100:#F2F4F7;
+  --color-grey50:#F9FAFB;
+  --color-grey25:#FCFCFD;
+  --font-weight-bold:700;
+  --font-weight-semibold:600;
+  --font-weight-medium:500;
+  --font-weight-regular:400;
+}
+html {
+	font-size: 100%;
+	font-family: 'Inter', sans-serif;
+	scroll-behavior: smooth;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  padding: 0;
+  width: 100%;
+}
+.App{
+  margin: auto 112px;
+  display:flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 0 32px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.profile{
+    width:100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;   
+    margin-top: 64px;
+    margin-bottom: 32px;
+    height: 15%;
+}
+.share{
+  margin: auto;
+  position: relative;
+  top:22px;
+  left:40%;
+  width: 40px;
+  height: 40px;
+}
+#share__img{
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.share-overlay{
+  position: absolute;
+  max-width: 40px;
+  max-height: 40px;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: .3 ease;
+  background:url(./images/share_button_mobile.svg) no-repeat center;
+}
+.share:active .share-overlay{
+  opacity: 1;
+}
+.profile-img{
+  position: relative;
+  max-width: 88px;
+  max-height: 88px;
+  margin-bottom: 24px;  
+  border-radius: 50%;
+}
+img#profile__img{
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.overlay{
+  position: absolute;
+  max-width: 88px;
+  max-height: 88px;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border-radius: 50%;
+  /* padding: 8px; */
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: .3 ease;
+  background:linear-gradient(0deg, rgba(52, 64, 84, 0.75), rgba(52, 64, 84, 0.75)), url(./images/camera.svg) no-repeat bottom ;
+}
+.share:hover .overlay{
+  opacity: 1;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+#twitter{
+  color:var(--color-grey900);
+  font-weight:var(--font-weight-bold)
+}
+#slack{
+  display: none;
+}
+.links-container{
+  margin-bottom: 24px;
+  width:100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: center;  
+  height: 60%;
+}
+a.link{
+  background-color: var(--color-grey200);
+  color: var(--color-grey900);
+  font-weight: var(--font-weight-medium);
+  text-decoration: none;
+  width: 100%;
+  padding: 24px 32px;
+  margin-bottom: 24px;
+  border-radius: 8px;
+  text-align: center;
+ }
+ a.link:last-child{
+  margin-bottom: 0;
+ }
+ a.link:hover{
+  background-color: var(--color-grey300);
+ }
+
+ .socials-container{
+  width: 100%;
+  margin-bottom: 64px;
+  display: flex;
+  flex-direction: row;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  height: 5%;
+  padding: 24px 0;
+ }
+ .social-link{
+  width: 24px;
+  height: 24px;
+  margin: 0 12px;
+ }
+ .footer{
+  height: 15%;
+  padding: 48px 0;
+  width: 100%;
+
+ }
+ .border-top{
+  width: 100%;
+  border-top: 1px solid var(--color-grey200);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+ }
+ .footer-link a{
+  text-decoration: none;
+ }
+
+ .footer-link{
+  margin: 0 16px;
+  display: flex;
+ }
+a#footer-hng{
+  color: var(--color-grey500);
+  font-weight: var(--font-weight-medium);
+  padding: 16px 0 0 0;
+  align-self: flex-end;
+
 }
 
-.App-link {
-  color: #61dafb;
+#footer-zuri{
+  max-height: 24.74px;
+  max-width: 185.03px;
+  align-self: flex-end;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+#footer-i4g{
+  max-height: 32px;
+  max-width: 132.2px;
+  align-self: flex-end;
 }
