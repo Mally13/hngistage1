@@ -303,6 +303,7 @@ a.link{
   font-weight: var(--font-weight-medium);
   text-decoration: none;
   width: 100%;
+  height: 30px;
   padding: 24px 16px;
   margin-bottom: 24px;
   border-radius: 8px;
@@ -375,4 +376,11 @@ a.link{
 .share:hover:before, .share:hover:after{
   display:none;
 }
+.subtext{
+    margin-top: 2px;
+    font-weight: var(--font-weight-regular);
+    font-size:xx-small ;
+    color: var(--color-grey600);
+    overflow: hidden;
+ }
 }
