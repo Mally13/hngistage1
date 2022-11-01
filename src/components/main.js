@@ -11,12 +11,12 @@ const profiledata ={
 }
 
 const data = [
-    ['btn_twitter','https://twitter.com/MallyMutuku13','Twitter Link'],
-    ['btn_zuri','https://training.zuri.team/', 'Zuri Team'],
-    ['books','http://books.zuri.team', 'Zuri Books'],
-    ['book__python','https://books.zuri.team/python-for-beginners?ref_id=%3Cyourslackname%3E', 'Python Books'],
-    ['pitch','https://background.zuri.team/', 'Background Check for Coders'],
-    ['book_design','https://books.zuri.team/design-rules', 'Design Books'],
+    ['btn_twitter','https://twitter.com/MallyMutuku13','Twitter Link',''],
+    ['btn_zuri','https://training.zuri.team/', 'Zuri Team',''],
+    ['books','http://books.zuri.team', 'Zuri Books','this is where you find books about design and coding'],
+    ['book__python','https://books.zuri.team/python-for-beginners?ref_id=%3Cyourslackname%3E', 'Python Books','where you feature the book as if you were selling it'],
+    ['pitch','https://background.zuri.team/', 'Background Check for Coders',' where you pitch a service for doing background checks on coders'],
+    ['book_design','https://books.zuri.team/design-rules', 'Design Books','where you pitch the free design book offered by Zuri'],
 ]
 
 
