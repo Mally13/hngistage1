@@ -379,9 +379,18 @@ a.link{
   width: 40px;
   height: 40px;
 }
-.share:hover:before, .share:hover:after{
+.share:hover:before, .share:hover:after, .share:active:after{
   display:none;
 }
+.share:active:before{
+  display:block;
+  width: 60px;
+  font-size: xx-small;
+  background:var(--color-grey200);
+  color: var(--color-baseBlack);
+
+}
+
 .subtext{
     margin-top: 2px;
     font-weight: var(--font-weight-regular);

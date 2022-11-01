@@ -24,9 +24,9 @@ function Main(){
   return (
     <>
     <div className='profile'>
-    <div className='share' data-text="Share Link">
-      <img id='share__img' src={share} alt='share'  onClick={()=>{navigator.clipboard.writeText("https://hngi-stage1-mary.netlify.app/")}}/>
-      <img id='sharemobile__img' src={shareMobile} alt='share'  onClick={()=>{navigator.clipboard.writeText("http")}}/>
+    <div className='share' data-text="Share Link" onClick={()=>{navigator.clipboard.writeText("https://hngi-stage1-mary.netlify.app/")}}>
+      <img id='share__img' src={share} alt='share'  />
+      <img id='sharemobile__img' src={shareMobile} alt='share'/>
       <div className='share-overlay' data-text="Link Copied"></div>
     </div>
     
