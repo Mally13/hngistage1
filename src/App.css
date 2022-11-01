@@ -108,7 +108,7 @@ body {
 .share:hover:before{
   content: "Share Link";
 }
-.share:active:before{
+.share:active:hover:before{
   content: "Link Copied!";
 }
 .share:hover .share-overlay{
