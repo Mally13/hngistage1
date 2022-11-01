@@ -55,10 +55,69 @@ body {
   width: 40px;
   height: 40px;
 }
+.share:before {
+  content: attr(data-text); 
+  /* here's the magic */
+  position:absolute;
+  
+  /* vertically center */
+  top:50%;
+  transform:translateY(-50%);
+  
+  /* move to left */
+  right:100%;
+  margin-right:15px; /* and add a small left margin */
+  
+  /* basic styles */
+  width:100px;
+  padding:8px;
+  border-radius:10px;
+  background:var(--color-grey900);
+  color: var(--color-baseWhite);
+  text-align:center;
+
+
+  display:none; /* hide by default */
+}
+.share:after {
+  content: "";
+  position:absolute;
+  
+  /* position tooltip correctly */
+  right:100%;
+  margin-right:-5px;
+ 
+  /* vertically center */
+  top:50%;
+  transform:translateY(-50%);
+ 
+  /* the arrow */
+  border:15px solid var(--color-grey900);
+  border-color: transparent transparent transparent var(--color-grey900);
+  
+  display:none;
+}
+.share:hover:before, .share:hover:after{
+  display:block;
+}
+.share:active:before, .share:active:after{
+  display:block;
+}
+.share:hover .share-overlay{
+  cursor: pointer;
+  opacity: .5;
+  }
+  
+
+
+
 #share__img{
   display: block;
   width: 100%;
   height: 100%;
+}
+#sharemobile__img{
+  display: none;
 }
 .share-overlay{
   position: absolute;
@@ -72,10 +131,12 @@ body {
   width: 100%;
   opacity: 0;
   transition: .3 ease;
-  background:url(./images/share_button_mobile.svg) no-repeat center;
+  background:var(--color-grey300);
+  border-radius: 50%;
 }
+
 .share:active .share-overlay{
-  opacity: 1;
+  opacity: .5;
 }
 .profile-img{
   position: relative;
@@ -105,7 +166,7 @@ img#profile__img{
   transition: .3 ease;
   background:linear-gradient(0deg, rgba(52, 64, 84, 0.75), rgba(52, 64, 84, 0.75)), url(./images/camera.svg) no-repeat bottom ;
 }
-.share:hover .overlay{
+.profile-img:hover .overlay{
   opacity: 1;
 }
 
@@ -194,4 +255,92 @@ a#footer-hng{
   max-height: 32px;
   max-width: 132.2px;
   align-self: flex-end;
+}
+/* Media Query For Tablet & phone */
+@media only screen and (max-width: 955px) {
+.App{
+  margin: auto 32px;
+  display:flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 0 ;
+
+}
+
+
+.profile{
+    width:100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;   
+    margin-top: 32px;
+    margin-bottom: 32px;
+    height: 15%;
+}
+a.link{
+  background-color: var(--color-grey200);
+  color: var(--color-grey900);
+  font-weight: var(--font-weight-medium);
+  text-decoration: none;
+  width: 100%;
+  padding: 24px 16px;
+  margin-bottom: 24px;
+  border-radius: 8px;
+  text-align: center;
+  white-space: nowrap;
+ }
+ .socials-container {
+  width: 100%;
+  margin-bottom: 32px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  height: 5%;
+  padding: 24px 0;
+}
+ .footer{
+  height: 15%;
+  padding: 0;
+  width: 100%;
+
+ }
+ .border-top {
+  width: 100%;
+  border-top: 1px solid var(--color-grey200);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+ .footer-link{
+  width:100%;
+  margin: 16px 16px;
+  display: flex;
+ }
+ a#footer-hng {
+  color: var(--color-grey500);
+  font-weight: var(--font-weight-medium);
+  padding: 16px 0 0 0;
+  align-self: flex-end;
+  white-space: nowrap;
+  max-width: 213px;
+}
+#footer-zuri{
+  max-height: 25px;
+  max-width: 140px;
+  align-self: flex-end;
+}
+#footer-i4g{
+  max-height: 24px;
+  max-width: 99.2px;
+  align-self: flex-end;
+}
+#share__img{
+  display: none;
+}
+#sharemobile__img{  
+  display: block;
+  width: 100%;
+  height: 100%;
+}
 }
