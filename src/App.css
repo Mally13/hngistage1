@@ -218,9 +218,9 @@ a.link{
     font-size: smaller;
     color: var(--color-grey800);
  }
- /* .subtext::first-letter{
+ .subtext::first-letter{
   text-transform: capitalize;
-} */
+}
 
 
  .socials-container{
