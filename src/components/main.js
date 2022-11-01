@@ -1,5 +1,6 @@
 import React from 'react';
 import share from '../images/share_button.svg';
+import shareMobile from '../images/share_button_mobile.svg'
 import profile from '../images/profile__img.svg'
 import Links from './modules/links';
 import Socials from './socials';
@@ -23,9 +24,10 @@ function Main(){
   return (
     <>
     <div className='profile'>
-    <div className='share'>
+    <div className='share' data-text="Share Link">
       <img id='share__img' src={share} alt='share'  onClick={()=>{navigator.clipboard.writeText("http")}}/>
-      <div className='share-overlay'></div>
+      <img id='sharemobile__img' src={shareMobile} alt='share'  onClick={()=>{navigator.clipboard.writeText("http")}}/>
+      <div className='share-overlay' data-text="Link Copied"></div>
     </div>
     
       <div className='profile-img'>
@@ -46,4 +48,4 @@ function Main(){
   )
 }
 
-export default Main
+export default Main;
