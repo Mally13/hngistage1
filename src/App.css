@@ -75,6 +75,7 @@ body {
   background:var(--color-grey900);
   color: var(--color-baseWhite);
   text-align:center;
+  z-index: 1;
 
 
   display:none; /* hide by default */
@@ -96,6 +97,7 @@ body {
   border-color: transparent transparent transparent var(--color-grey900);
   
   display:none;
+  z-index: 1;
 }
 .share:hover:before, .share:hover:after{
   display:block;
