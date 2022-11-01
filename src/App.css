@@ -56,7 +56,7 @@ body {
   height: 40px;
 }
 .share:before {
-  content: attr(data-text); 
+  /* content: attr(data-text);  */
   /* here's the magic */
   position:absolute;
   
@@ -104,6 +104,12 @@ body {
 }
 .share:active:before, .share:active:after{
   display:block;
+}
+.share:hover:before{
+  content: "Share Link";
+}
+.share:active:before{
+  content: "Link Copied!";
 }
 .share:hover .share-overlay{
   cursor: pointer;
