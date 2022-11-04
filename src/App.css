@@ -360,10 +360,19 @@ input#agree{
   width: 16px;
   height: 16px;
 }
-input#submit{
+button#submit:disabled{
+  background-color: var(--color-primary200);
+  border: 1px solid var(--color-primary200);
+  color:var(--color-baseWhite);
+  border-radius: 8px;
+  padding: 12px 20px;
+}
+button#submit:valid{
   background-color: var(--color-primary600);
   border: 1px solid var(--color-primary600);
-  color:var(--color-baseWhite)
+  color:var(--color-baseWhite);
+  border-radius: 8px;
+  padding: 12px 20px;
 }
 
 input, textarea{
@@ -379,9 +388,18 @@ input:focus-visible,textarea:focus-visible{
   border: 1px solid var(--color-primary300);
 box-shadow: 0px 1px 2px rgba(16, 24, 40, 0.05), 0px 0px 0px 4px #D1E9FF;
 }
-input.error, textarea.error{
+input.is-invalid, textarea.is-invalid{
   border: 1px solid #F89687;
-box-shadow: 0px 1px 2px rgba(16, 24, 40, 0.05), 0px 0px 0px 4px #FFD3CC;
+}
+input:focus-visible.is-invalid,textarea:focus-visible.is-invalid{
+  border: 1px solid #F89687;
+  box-shadow: 0px 1px 2px rgba(16, 24, 40, 0.05), 0px 0px 0px 4px #FFD3CC;
+
+}
+.invalid-feedback{
+  color:#F83F23;
+  font-weight: var(--font-weight-regular);
+  font-size: smaller;
 }
 
 
