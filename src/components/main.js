@@ -1,7 +1,7 @@
 import React from 'react';
 import share from '../images/share_button.svg';
 import shareMobile from '../images/share_button_mobile.svg'
-import profile from '../images/profile__img.svg'
+import profile from '../images/prof.jpeg'
 import Links from './modules/links';
 import Socials from './socials';
 
