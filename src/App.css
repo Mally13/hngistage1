@@ -411,58 +411,31 @@ input:focus-visible.is-invalid,textarea:focus-visible.is-invalid{
 @media only screen and (max-width: 955px) {
 .App{
   margin: auto 32px;
-  display:flex;
-  flex-direction: column;
-  height: 100%;
   padding: 0 ;
 
 }
 
 
 .profile{
-    width:100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;   
     margin-top: 32px;
     margin-bottom: 32px;
     height: 15%;
 }
 a.link{
-  background-color: var(--color-grey200);
-  color: var(--color-grey900);
-  font-weight: var(--font-weight-medium);
-  text-decoration: none;
   width: 100%;
   height: 30px;
   padding: 16px;
-  margin-bottom: 24px;
-  border-radius: 8px;
-  text-align: center;
   white-space: nowrap;
  }
  .socials-container {
-  width: 100%;
   margin-bottom: 32px;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  height: 5%;
-  padding: 24px 0;
 }
  .footer{
-  height: 15%;
   padding: 0;
-  width: 100%;
   margin-top: 32px;
 
  }
  .border-top {
-  width: 100%;
-  border-top: 1px solid var(--color-grey200);
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
   flex-wrap: wrap;
 }
  .footer-link{
@@ -471,9 +444,6 @@ a.link{
   display: flex;
  }
  a#footer-hng {
-  color: var(--color-grey500);
-  font-weight: var(--font-weight-medium);
-  padding: 16px 0 0 0;
   align-self: flex-end;
   white-space: nowrap;
   max-width: 213px;
@@ -523,5 +493,14 @@ a.link{
     font-size:xx-small ;
     color: var(--color-grey600);
     overflow: hidden;
+ }
+
+ /*Contact me mobile*/
+ .contact_page{
+  padding: 0;
+  margin: 0;
+ }
+ .fullname{
+  flex-direction: column;
  }
 }

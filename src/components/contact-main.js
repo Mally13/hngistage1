@@ -15,12 +15,12 @@ const ContactSchema = Yup.object().shape({
     first_name: Yup.string()
         .required('Please enter your first name'),
     last_name: Yup.string()
-        .required('Please1 enter your last name'),
+        .required('Please enter your last name'),
     email: Yup.string()
         .email('Email is invalid')
-        .required('Please enter an email'),
+        .required('Please enter your email'),
     message:Yup.string()
-    .required('Please enter a message'),
+    .required('Please enter your message'),
     agree:Yup.bool()
         .oneOf([true], 'Required')
     });
@@ -83,6 +83,7 @@ const ContactSchema = Yup.object().shape({
             </div>
             <div className='form-field'>
                 <Field type="checkbox" id="agree" name="agree" className={'form-control' + (errors.agree && touched.agree ? ' is-invalid' : '')}/>
+                <span class="mark"></span>
                 <label className='agree'>You agree to providing your data to Mary who may contact you.</label><br/>
                 {/* <ErrorMessage name="agree" component="div" className="invalid-feedback" /> */}
             </div>
