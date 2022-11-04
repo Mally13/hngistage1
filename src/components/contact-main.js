@@ -1,8 +1,49 @@
 import React from 'react';
-import { Formik } from 'formik';
+import { Formik, Field, Form, ErrorMessage } from 'formik';
+import * as Yup from 'yup';
 
 
 function ContactMain(){
+    const initialValues={
+        first_name:'',
+        last_name:'',
+        email:'',
+        message:'',
+        agree:false,
+    }
+const ContactSchema = Yup.object().shape({
+    first_name: Yup.string()
+        .required('Please enter your first name'),
+    last_name: Yup.string()
+        .required('Please1 enter your last name'),
+    email: Yup.string()
+        .email('Email is invalid')
+        .required('Please enter an email'),
+    message:Yup.string()
+    .required('Please enter a message'),
+    agree:Yup.bool()
+        .oneOf([true], 'Required')
+    });
+    function onSubmit({
+        first_name, last_name,email, message, agree
+    },{ setStatus, setSubmitting }) {
+        
+
+        setStatus();
+        let contactformData = new FormData();
+        
+    
+        contactformData.append('first_name',first_name)
+        contactformData.append('last_name',last_name)
+        contactformData.append('email',email)
+        contactformData.append('message',message)
+        contactformData.append('agree',agree)
+
+
+        console.log(contactformData);
+
+    }
+
   return (
     <div className='contact_page'>
         <div className='heading'>
@@ -12,68 +53,48 @@ function ContactMain(){
             Hi there, contact me to ask me about anything you have in mind.
         </div>
         <Formik className='contact-form'
-            initialValues={{first_name:'', last_name:'', email:'', message:'',agree:false}}
-            validate={values=>{
-                const errors={};
-                if(!values.first_name){
-                    errors.first_name='Required'
-                }if(!values.last_name){
-                    errors.last_name='Required'
-                }if(!values.email){
-                    errors.email='Required'
-                }if(!values.message){
-                    errors.message='Required'
-                }if(values.agree!==true){
-                    errors.agree='Required'
-                }else if(!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)){
-                    errors.email = 'Invalid email address';
-                }
-                return errors;
-            }}
-            onSubmit={(values, { setSubmitting }) => {
-                setTimeout(() => {
-                  alert(JSON.stringify(values, null, 5));
-                  setSubmitting(false);
-            }, 400);
-        }}>
-        {({
-            values,
-            errors,
-            touched,
-            handleChange,
-            handleBlur,
-            handleSubmit,
-            isSubmitting,
-        }) => (
-        <form onSubmit={handleSubmit}>
+            initialValues={initialValues}
+            validationSchema={ContactSchema} onSubmit={onSubmit}>
+            {({values, errors, touched, isSubmitting }) => (
+
+        <Form>
             <div className='fullname'>
                 <div className='form-field'>
-                    <label for="first_name">First name</label>
-                    <input type="text" id="first_name" name="first_name" onChange={handleChange} onBlur={handleBlur} value={values.first_name}/>
+                    <label>First name</label>
+                    <Field type="text" id="first_name" name="first_name" className={'form-control' + (errors.first_name && touched.first_name? ' is-invalid' : '')}/>
+                    <ErrorMessage name="first_name" component="div" className="invalid-feedback" />
                 </div>
                 <div className='form-field'>
-                    <label for="last_name">Last name</label>
-                    <input type="text" id="last_name" name="last_name" onChange={handleChange} onBlur={handleBlur} value={values.last_name}/>
+                    <label>Last name</label>
+                    <Field type="text" id="last_name" name="last_name" className={'form-control' + (errors.last_name && touched.last_name ? ' is-invalid' : '')}/>
+                    <ErrorMessage name="last_name" component="div" className="invalid-feedback" />
                 </div>
             </div>
             <div className='form-field'>
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" onChange={handleChange} onBlur={handleBlur} value={values.email}/>
-
+                <label>Email</label>
+                <Field type="email" id="email" name="email" className={'form-control' + (errors.email && touched.email? ' is-invalid' : '')}/>
+                <ErrorMessage name="email" component="div" className="invalid-feedback" />
             </div>
 
             <div className='form-field'>
-                <label for="message">Message</label>
-                <textarea  id="message" name="message" onChange={handleChange} onBlur={handleBlur} value={values.message}/>
+                <label>Message</label>
+                <Field as='textarea' id="message" name="message" className={'form-control' + (errors.message&& touched.message ? ' is-invalid' : '')}/>
+                <ErrorMessage name="message" component="div" className="invalid-feedback" />
             </div>
             <div className='form-field'>
-                <input type="checkbox" id="agree" name="agree" onChange={handleChange} onBlur={handleBlur} value={values.agree}/>
-                <label for="agree">You agree to providing your data to Mary who may contact you.</label><br></br>
+                <Field type="checkbox" id="agree" name="agree" className={'form-control' + (errors.agree && touched.agree ? ' is-invalid' : '')}/>
+                <label className='agree'>You agree to providing your data to Mary who may contact you.</label><br/>
+                {/* <ErrorMessage name="agree" component="div" className="invalid-feedback" /> */}
             </div>
             <div className='form-field'>
-                <input type="submit" id="submit" value="Send Message"/>
+                <button type="submit" id="submit" disabled={isSubmitting} >
+                {isSubmitting?
+                    <div>Sending message ...</div>
+                    :"Send Message"
+                }
+                </button>
             </div>
-        </form>)}
+        </Form>)}
         </Formik>
     </div>  
     
