@@ -55,30 +55,30 @@ const ContactSchema = Yup.object().shape({
         <Formik className='contact-form'
             initialValues={initialValues}
             validationSchema={ContactSchema} onSubmit={onSubmit}>
-            {({values, errors, touched, isSubmitting }) => (
+            {({values, errors, touched, isSubmitting ,isValid}) => (
 
         <Form>
             <div className='fullname'>
                 <div className='form-field'>
                     <label>First name</label>
-                    <Field type="text" id="first_name" name="first_name" className={'form-control' + (errors.first_name && touched.first_name? ' is-invalid' : '')}/>
+                    <Field type="text" id="first_name" name="first_name" placeholder="Enter your first name"className={'form-control' + (errors.first_name && touched.first_name? ' is-invalid' : '')}/>
                     <ErrorMessage name="first_name" component="div" className="invalid-feedback" />
                 </div>
                 <div className='form-field'>
                     <label>Last name</label>
-                    <Field type="text" id="last_name" name="last_name" className={'form-control' + (errors.last_name && touched.last_name ? ' is-invalid' : '')}/>
+                    <Field type="text" id="last_name" name="last_name" placeholder="Enter your last name" className={'form-control' + (errors.last_name && touched.last_name ? ' is-invalid' : '')}/>
                     <ErrorMessage name="last_name" component="div" className="invalid-feedback" />
                 </div>
             </div>
             <div className='form-field'>
                 <label>Email</label>
-                <Field type="email" id="email" name="email" className={'form-control' + (errors.email && touched.email? ' is-invalid' : '')}/>
+                <Field type="email" id="email" name="email" placeholder="yourname@email.com" className={'form-control' + (errors.email && touched.email? ' is-invalid' : '')}/>
                 <ErrorMessage name="email" component="div" className="invalid-feedback" />
             </div>
 
             <div className='form-field'>
                 <label>Message</label>
-                <Field as='textarea' id="message" name="message" className={'form-control' + (errors.message&& touched.message ? ' is-invalid' : '')}/>
+                <Field as='textarea' id="message" name="message" placeholder="Send me a message and I'll reply you as soon as possible..." className={'form-control' + (errors.message&& touched.message ? ' is-invalid' : '')}/>
                 <ErrorMessage name="message" component="div" className="invalid-feedback" />
             </div>
             <div className='form-field'>
@@ -88,7 +88,7 @@ const ContactSchema = Yup.object().shape({
                 {/* <ErrorMessage name="agree" component="div" className="invalid-feedback" /> */}
             </div>
             <div className='form-field'>
-                <button type="submit" id="btn__submit" disabled={isSubmitting} >
+                <button type="submit" id="btn__submit" disabled={(!isValid)} >
                 {isSubmitting?
                     <div>Sending message ...</div>
                     :"Send Message"
