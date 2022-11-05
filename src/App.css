@@ -360,14 +360,14 @@ input#agree{
   width: 16px;
   height: 16px;
 }
-button#submit:disabled{
+button#btn__submit:disabled{
   background-color: var(--color-primary200);
   border: 1px solid var(--color-primary200);
   color:var(--color-baseWhite);
   border-radius: 8px;
   padding: 12px 20px;
 }
-button#submit:valid{
+button#btn__submit:valid{
   background-color: var(--color-primary600);
   border: 1px solid var(--color-primary600);
   color:var(--color-baseWhite);

@@ -88,7 +88,7 @@ const ContactSchema = Yup.object().shape({
                 {/* <ErrorMessage name="agree" component="div" className="invalid-feedback" /> */}
             </div>
             <div className='form-field'>
-                <button type="submit" id="submit" disabled={isSubmitting} >
+                <button type="submit" id="btn__submit" disabled={isSubmitting} >
                 {isSubmitting?
                     <div>Sending message ...</div>
                     :"Send Message"
