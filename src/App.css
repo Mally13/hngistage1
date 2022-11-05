@@ -378,7 +378,45 @@ button#btn__submit:valid{
 input, textarea{
  padding: 14px 10px;
  border-radius: 8px;
- border:1px solid var(--color-grey300)
+ border:1px solid var(--color-grey300);
+ color: var(--color-grey900);
+ font-weight: var(--font-weight-regular);
+ font-size: inherit;
+ font-family: inherit;
+}
+textarea::-webkit-input-placeholder,input::-webkit-input-placeholder {
+  color: var(--color-grey500);
+  font-weight: var(--font-weight-regular);
+  font-size: inherit;
+  font-family: inherit;
+}
+
+textarea:-moz-placeholder,input:-moz-placeholder { /* Firefox 18- */
+  color: var(--color-grey500);
+  font-weight: var(--font-weight-regular);
+  font-size: inherit;
+  font-family: inherit;
+}
+
+textarea::-moz-placeholder, input::-moz-placeholder{  /* Firefox 19+ */
+  color: var(--color-grey500);
+  font-weight: var(--font-weight-regular);
+  font-size: inherit;
+  font-family: inherit; 
+}
+
+textarea:-ms-input-placeholder,input:-ms-input-placeholder {
+  color: var(--color-grey500);
+  font-weight: var(--font-weight-regular);
+  font-size: inherit;
+  font-family: inherit;
+}
+
+textarea::placeholder, input::placeholder {
+  color: var(--color-grey500);
+  font-weight: var(--font-weight-regular);
+  font-size: inherit;
+  font-family: inherit;
 }
 textarea{
   height: 132px;
